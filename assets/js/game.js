@@ -10,72 +10,68 @@ var losses = 0;
 var guessesLeft = 10;
 
 //letters already guessed (array)
-var letterGuessed = [];
-
-//computer choice (string)
-var computerChoice = "";
+var lettersGuessed = [];
 
 //computer choices bank (array of the alphebet)
-var computerChoicesBank = "abcdefghijklmnopqrstuvwxyz".split("");
-
+var computerChoice = "abcdefghijklmnopqrstuvwxyz".split("");
+var computerGuess = "";
 
 //create all variables that reference specific parts of the page
-var userGuess
-var computerGuess
-var guessesLeft
-var guessedLetters
-
-
-
-//$wins (document.getElementById)
-document.getElementById("userWin");
-
-// $losses
-document.getElementById("computerWin");
-
-// $guessesleft
-document.getElementById("guessesLeft")
-
-// $userguess
-document.getElementById("guessedLetters")
+var userWin = document.getElementById("userWin");
+//this is easier to understand than computer win bc you are tracking the user losses.
+var userLoss = document.getElementById("userLoss");
+var guessesLeft = document.getElementById("guessesLeft");
+var guessedLetters = document.getElementById("guessedLetters");
 
 //create a function to start/reset the game
-
-fucntion newGame() {
+function newGame() {
   //reset important game variables
-
-    // assign computerGuess a new random letter
-
-    // reset the lettersAlreadyGuessed array
-    guessedLetters.length = 0;
-
-    // How many guessesLeft back to 10
-
-    //write some info to the page indicating a new game has started
+  // How many guessesLeft back to 10
+  guessesLeft = 10;
+  // reset the lettersAlreadyGuessed array
+  lettersGuessed = [];
+  //write some info to the page indicating a new game has started
+  //randomly choose computer guess
+  computerGuess = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+  alert("New Game Starting! Good Luck!!!");
 }
 
-document.onkeyup = function(event)
-  
-  //run our logic to check out guess
-  var computerGuess = computerchoices[Math.floor(math.random() * computerChoicesBank.length)];
-  // capture user's guess using event.key
-  document.onkeyup
+// capture user's guess using event.key
+document.onkeyup = function (event) {
+  var userGuess = event;
+  console.log(event)
+  //on every key press you want to push the user guess into the letters guessed array
+  userGuess.text = guessedLetters
+  //you also want to decrement your guessesLeft variable
+  userGuess.text = guessesLeft--
+  }
 
+  //THIS IS YOUR WIN CONDITION
   // if userGuess === computerGuess...you win
+if (userGuess === computerGuess) {
     // increase wins by 1
+    wins++;
     // start a new game newGame()
-  // else
-    // decrement guessesLeft by 1 (guessesLeft--
+  function newGame()
+    //you can update html here
   
-    // if guessesLeft ===0 .... you lose
-      // increase losses by 1
-      // start a new game newGame()
+  }
 
-    // add lettter guessed to lettersAlreadyGuessedarray (using .push)
+  //THIS IS YOUR LOSS CONDITION
+  //since you are decrementing the guessesLeft on every keypress your loss condition is here
+  if (guessesLeft === 0) {
+    //increment losses
+    losses++;
 
-    // display information to the page
-      // write userGuess, computerGuess, guessesLeft, and lettersAlreadyGuessed to the page in thier respective locations (which you created references to above)
+    // start a new game newGame()
+    function newGame();
 
-}
+    //you can update html here
+  
+  guessesLeft.text = userLoss
+  }
 
-// run newGame() to start game for the first time 
+//run new game function
+function newGame()
+
+  //try your own way of adding html that makes sense to you. mess around with where you do it and see what happens. it will help you understand the game. console.log() everything you can.
