@@ -59,7 +59,7 @@ if (userGuess === computerGuess) {
   else {
     guessesLeft--;
   //you also want to decrement your guessesLeft variable
-  userGuess.text = guessesLeft;
+  userGuess.innerHTML = guessesLeft;
   }
 
   //THIS IS YOUR LOSS CONDITION
@@ -73,7 +73,7 @@ if (userGuess === computerGuess) {
 
     //you can update html here
   
-    userLoss.text = ""
+    userLoss.innerHTML = ""
   }
 
 }
